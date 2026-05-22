@@ -1,3 +1,9 @@
+/* =============================================
+   Тёмная тема (неон / dark)
+   ============================================= 
+*/
+
+/* Тёмная тема на корневом элементе */
 :root.theme-dark {
   --main-text-color: #f1b2ce;
   --bg-color: #000028;
@@ -8,9 +14,10 @@
   --section-header-color: #ff0070;
   --accent-color: #ff0070;
   --bg-image: url("../images/cover-image-dark.png");
-  --rec-type: block;
+  --rec-type: block; 
 }
 
+/* Автоматическая тёмная тема по системным настройкам */
 @media (prefers-color-scheme: dark) {
   :root {
     --main-text-color: #f1b2ce;

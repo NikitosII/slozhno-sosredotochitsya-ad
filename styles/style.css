@@ -1,3 +1,12 @@
+/* =============================================
+   Основные стили страницы.
+   Mobile-first: базовые правила — для мобильных,
+   расширения — в блоках @media.
+   ============================================= 
+*/
+
+/* --- Страница --- */
+
 .page {
   background-color: var(--bg-color);
   font-family: var(--main-font);
@@ -12,6 +21,8 @@
   margin: 0 auto;
 }
 
+/* --- Хедер --- */
+
 .header {
   display: grid;
   grid-template-rows: 1fr min-content 1fr auto;
@@ -20,10 +31,12 @@
   padding: var(--main-padding);
 }
 
+/* --- Декоративная рамка (хедер и футер) --- */
+
 .decorated-zone {
   height: 100vh;
   min-height: 668px;
-  position: relative;
+  position: relative; 
 }
 
 .decorated-zone::before {
@@ -47,6 +60,8 @@
   border-block-start: 1px solid var(--button-color);
   border-inline-end: 1px solid var(--button-color);
 }
+
+/* --- Меню переключения темы --- */
 
 .header__theme-menu-list {
   display: flex;
@@ -79,6 +94,9 @@
   pointer-events: none;
 }
 
+/* --- Заголовок (общий стиль для h1 и h2 в хедере/футере) --- */
+
+/* clamp: минимум 7.25rem, плавно растёт до 7.5rem при ширине 375–1440px */
 .title {
   color: var(--main-header-color);
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
@@ -91,13 +109,15 @@
   text-shadow: 4px 4px 0 var(--shadow-color);
 }
 
+/* --- Метка REC --- */
+
 .header__rec {
   position: absolute;
   display: var(--rec-type);
   color: var(--button-color);
   text-transform: uppercase;
   inset-block-start: var(--main-padding);
-  inset-inline-end: calc(var(--main-padding) + 28px);
+  inset-inline-end: calc(var(--main-padding) + 28px); 
 }
 
 .header__rec::after {
@@ -114,11 +134,15 @@
   inset-block-start: 9px;
 }
 
+/* --- Основной контент --- */
+
 .content {
   display: grid;
   gap: var(--sections-gap);
   padding: var(--main-content-vertical-padding) var(--main-padding);
 }
+
+/* --- Секции --- */
 
 .section {
   display: grid;
@@ -136,6 +160,8 @@
   display: grid;
   gap: 20px;
 }
+
+/* --- Карточки --- */
 
 .card {
   display: grid;
@@ -182,6 +208,10 @@
   outline: 1px solid var(--main-text-color);
 }
 
+/* --- Галерея изображений --- */
+
+/* Мозаичная сетка с тремя колонками; span-правила на изображениях
+   создают нестандартное расположение (широкий верх, высокие боковые) */
 .card-images {
   display: grid;
   gap: var(--main-padding);
@@ -190,9 +220,11 @@
 .card-images-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover;       
   object-position: center;
 }
+
+/* --- Футер --- */
 
 .footer {
   display: flex;
@@ -205,6 +237,10 @@
   text-shadow: 2px 2px 0 var(--shadow-color);
 }
 
+/* =============================================
+   Планшет: ширина от 768px
+   ============================================= 
+*/
 @media (width >= 768px) {
   :root {
     --main-padding: 20px;
@@ -237,6 +273,10 @@
     width: calc(100% / 2);
   }
 
+  .card-images {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   .card-images-image:first-child {
     grid-column: span 2;
   }
@@ -255,6 +295,10 @@
   }
 }
 
+/* =============================================
+   Десктоп: ширина от 1024px
+   ============================================= 
+*/
 @media (width >= 1024px) {
   .second-section .section__card-list {
     grid-template-columns: repeat(3, 1fr);
