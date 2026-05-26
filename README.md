@@ -1,4 +1,4 @@
-https://github.com/NikitosII/slozhno-sosredotochitsya-ad.git
+https://nikitosii.github.io/slozhno-sosredotochitsya-ad/
 
 # Сложно сосредоточиться
 
